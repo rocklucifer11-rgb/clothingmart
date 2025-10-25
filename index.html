@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZyraMart - Pop Culture Clothing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #ff6f61;
+      --secondary-color: #4dabf7;
+      --accent-color: #ffd166;
+      --bg-color: #fafafa;
+      --text-color: #333;
+      --max-width: 1200px;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins', sans-serif; background: var(--bg-color); color: var(--text-color); line-height:1.6; position:relative; overflow-x:hidden; }
+
+    a { text-decoration:none; color: var(--primary-color); transition: all 0.3s ease; }
+    a:hover { color: var(--secondary-color); }
+
+    .container { max-width: var(--max-width); margin:0 auto; padding: 0 20px; }
+
+    /* HEADER */
+    header { background:#fff; padding:15px 0; box-shadow: 0 3px 10px rgba(0,0,0,0.05); position: relative; z-index: 10; }
+    nav { display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-size:1.8em; font-weight:700; color: var(--primary-color); }
+    .nav-links { list-style:none; display:flex; gap:25px; font-weight:600; }
+    .nav-links li a { padding:5px 0; }
+
+    /* HERO */
+    .hero { background:#fff5f3; height:400px; display:flex; align-items:center; justify-content:center; text-align:center; margin-bottom:50px; border-radius:15px; position:relative; overflow:hidden; }
+    .hero-content { padding:40px 50px; transition: transform 0.3s ease; z-index:2; position:relative; }
+    .hero-content:hover { transform: translateY(-5px); }
+    .hero h1 { font-size:2.5em; margin-bottom:15px; font-weight:700; color: var(--primary-color); }
+    .hero p { font-size:1.2em; margin-bottom:25px; color: var(--text-color); }
+    .hero .btn { padding:12px 30px; font-weight:600; border-radius:8px; background: var(--primary-color); color:#fff; border:none; cursor:pointer; transition: transform 0.3s ease, background 0.3s ease; }
+    .hero .btn:hover { transform: scale(1.05); background: var(--secondary-color); }
+
+    /* Floating Hero Graphics */
+    .hero .circle { position:absolute; border-radius:50%; opacity:0.15; }
+    .hero .circle1 { width:120px; height:120px; background:#ff6f61; top:10%; left:5%; }
+    .hero .circle2 { width:180px; height:180px; background:#ffd166; bottom:10%; right:10%; }
+    .hero .circle3 { width:100px; height:100px; background:#4dabf7; top:20%; right:15%; }
+
+    /* PRODUCT SECTION */
+    .product-section { padding:50px 0; position:relative; z-index:1; }
+    .section-title { text-align:center; font-size:2em; margin-bottom:40px; font-weight:600; color: var(--primary-color); }
+    .product-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
+    .product-card { background:#fff; border-radius:15px; padding:20px; text-align:center; box-shadow:0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer; position:relative; overflow:hidden; }
+    .product-card:hover { transform: translateY(-7px) scale(1.02); box-shadow:0 10px 20px rgba(0,0,0,0.15); }
+    .product-card img { width:100%; border-radius:12px; margin-bottom:15px; transition: transform 0.3s ease; }
+    .product-card:hover img { transform: scale(1.05); }
+    .product-card h3 { font-size:1.2em; margin-bottom:8px; color: var(--secondary-color); }
+    .product-card p { font-size:1.1em; font-weight:600; color: var(--accent-color); margin-bottom:12px; }
+    .product-card button { padding:10px 20px; background: var(--primary-color); color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:600; transition: background 0.3s ease, transform 0.3s ease; }
+    .product-card button:hover { background: var(--secondary-color); transform: scale(1.05); }
+
+    /* FEATURES */
+    .features-section { background:#fff7e6; padding:60px 0; position:relative; overflow:hidden; }
+    .features-grid { display:flex; flex-wrap:wrap; gap:30px; justify-content:space-around; text-align:center; }
+    .feature-item { flex:1; min-width:220px; transition: transform 0.3s ease; }
+    .feature-item:hover { transform: translateY(-5px); }
+    .feature-item i { font-size:2.5em; color: var(--primary-color); margin-bottom:15px; }
+    .feature-item h4 { font-size:1.2em; margin-bottom:8px; color: var(--text-color); }
+    .feature-item p { font-size:1em; color: var(--text-color); }
+
+    /* Floating feature graphics */
+    .features-section .triangle { position:absolute; width:100px; height:100px; background:#ff6f61; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); opacity:0.1; top:10%; left:5%; transform:rotate(15deg);}
+    .features-section .triangle2 { position:absolute; width:80px; height:80px; background:#4dabf7; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); opacity:0.1; bottom:5%; right:10%; transform:rotate(-10deg);}
+
+    /* FOOTER */
+    footer { background:#f8f8f8; color: var(--text-color); padding:40px 0; text-align:center; font-size:0.9em; }
+    footer a { color: var(--secondary-color); margin:0 10px; transition: color 0.3s ease; }
+    footer a:hover { color: var(--primary-color); }
+
+    @media(max-width:768px){
+      .hero h1 { font-size:2em; }
+      .hero p { font-size:1em; }
+      .features-grid { flex-direction:column; align-items:center; }
+      .nav-links { flex-wrap:wrap; justify-content:center; gap:15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">ZyraMart</div>
+        <ul class="nav-links">
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">Sale</a></li>
+          <li><a href="#">Account</a></li>
+          <li><a href="#">Cart (0)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+    <div class="hero-content">
+      <h1>Fresh & Stylish Collection</h1>
+      <p>Simple designs. Premium quality. Find your style today.</p>
+      <button class="btn">Shop Now</button>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="product-section">
+    <div class="container">
+      <h2 class="section-title">Best Sellers</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="https://via.placeholder.com/300x320/ff6f61/fff?text=Funky+Tee" alt="Funky Tee">
+          <h3>Funky Tee</h3>
+          <p>₹1,299</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="https://via.placeholder.com/300x320/4dabf7/fff?text=Retro+Denim" alt="Retro Denim">
+          <h3>Retro Denim</h3>
+          <p>₹2,499</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="https://via.placeholder.com/300x320/ffd166/000?text=Glow+Sweater" alt="Glow Sweater">
+          <h3>Glow Sweater</h3>
+          <p>₹4,299</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="https://via.placeholder.com/300x320/ff6f61/fff?text=Neon+Hoodie" alt="Neon Hoodie">
+          <h3>Neon Hoodie</h3>
+          <p>₹1,999</p>
+          <button class="add-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section">
+    <div class="triangle"></div>
+    <div class="triangle2"></div>
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item">
+          <i class="fas fa-shipping-fast"></i>
+          <h4>Fast Shipping</h4>
+          <p>On orders above ₹1,999</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-lock"></i>
+          <h4>Secure Payments</h4>
+          <p>100% safe checkout</p>
+        </div>
+        <div class="feature-item">
+          <i class="fas fa-sync-alt"></i>
+          <h4>Easy Returns</h4>
+          <p>30-day money-back guarantee</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 ZyraMart. All rights reserved.</p>
+      <div>
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Service</a> |
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    let cartCount = 0;
+    const cartLink = document.querySelector('.nav-links li:last-child a');
+    const cartButtons = document.querySelectorAll('.add-cart');
+
+    cartButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        cartCount++;
+        cartLink.textContent = `Cart (${cartCount})`;
+      });
+    });
+  </script>
+
+</body>
+</html>
